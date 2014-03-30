@@ -1,19 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ÎÒµÄÒ³Ãæ</title>
-  <meta chatset=utf-8>
+  <title>æˆ‘çš„é¡µé¢</title>
+  <meta charset=utf-8>
 </head>
 <body>
-<h1>¸£¶ûÄ¦Ë¹Ì½°¸¾­µä:</h1><br>
-<h2>¡¶¿Ö²À¹È¡·µÚ9ÕÂPart2</h2>
+<h1 title="h">ç¦å°”æ‘©æ–¯æ¢æ¡ˆç»å…¸:</h1><br>
+<h2>ã€Šææ€–è°·ã€‹ç¬¬9ç« Part2</h2>
 <p>
  a<sup>2</sup>+b<sub>0</sub>
 </p>
 <p>
-¡°Èç¹ûÄã<b>Ã»ÓĞ</b>±ğµÄÊÂ£¬ÄãÒ»¶¨ÒªÕÒ<s>Ê±¼ä</s>È¥¿´¿´Ëû¡£Ìì°¡£¬<mark>»ï¼Æ</mark>£¬<del>Äã</del><ins>ÎÒ</ins>µ½ÕâÀïÒÔºó£¬µÚÒ»ÌìÔç³¿¾¹Ã»ÓĞµ½¹¤»áÈ¥µÇ¼ÇĞÕÃû £¬¼òÖ±ÊÇ·èÁË£¡ÒªÊÇÄãµÃ×ïÁËËû£¬°¦£¬Äã¾ö²»Òª¡­¡­¾ÍËµµ½Õâ°É£¡¡±
+<em>emå¼ºæ‰</em>
+<strong>strongç€é‡</strong>
+<dfn>definnitionå®šä¹‰</dfn>
+<code>codeä»£ç </code>
+<samp>sampä¾‹å­ä»£ç </samp>
+<kbd>kbdç”¨æˆ·è¾“å…¥</kbd>
+<var>variableå˜é‡</var>
+<cite>citeå¼•ç”¨</cite>
+<br>
+
+<address>
+<blockquote>           
+Rm 401 ckp west wing<br>
+ç¾½æ³‰ Camps<br>
+<q>
+æµ™æ±Ÿ U<br>
+</q>
+</blockquote>
+</address>
+<code>
+<pre>
+void prepareCryptTable(){
+	unsigned long seed = 0x00100001,index1 = 0,index2 = 0,i;
+	for(index1 = 0;index1 <0x100;index1++){
+		for(index2 = index1,i=0;i<5;i++,index2+=0x1){
+			unsigned long temp1,temp2;
+
+			seed = (seed *125+3)%0x2AAAAB;
+			temp1 = (seed & 0xFFFF)<<0x10;
+
+			seed = (seed *125+3)%0x2AAAAB;
+			temp2 = (seed & 0xFFFF);
+
+			cryptTable[index2] = (temp1 | temp2);
+		}
+	}
+}
+</pre>
+</code>
+<hr width=50% align=left size=10>
+<abbr titie="ä¸­åäººæ°‘å…±å’Œå›½">PRC</abbr><br>
+<bdo dir=rtl>ï¼Œç®€ç›´æ˜¯ç–¯äº†ï¼è¦æ˜¯<bdi>ä½ å¾—ç½ª</bdi>äº†ä»–</bdo>  <br>
+a&lt;2&gt;  &amp;&nbsp;&nbsp;&amp;L&uumlL&Uuml<br>
+<br>
+â€œå¦‚æœä½ <b>æ²¡æœ‰</b>åˆ«çš„äº‹ï¼Œä½ ä¸€å®šè¦æ‰¾<s>æ—¶é—´</s>å»çœ‹çœ‹ä»–ã€‚å¤©å•Šï¼Œ<mark>ä¼™è®¡</mark>ï¼Œ<del>ä½ </del><ins>æˆ‘</ins>åˆ°è¿™é‡Œä»¥åï¼Œç¬¬ä¸€å¤©æ—©æ™¨ç«Ÿæ²¡æœ‰åˆ°å·¥ä¼šå»ç™»è®°å§“å ï¼Œç®€ç›´æ˜¯ç–¯äº†ï¼è¦æ˜¯ä½ å¾—ç½ªäº†ä»–ï¼Œå”‰ï¼Œä½ å†³ä¸è¦â€¦â€¦å°±è¯´åˆ°è¿™å§ï¼â€
 </p>
-<p>
+<p id="fuermosi">
 "You <b>must find <i>time</i> for</b> him if you <tt>have</tt> none <small>for</small> anything else. Good Lord, man! you're a fool not to have been down to the Union House and registered your name the first morning after you came here! If you run against him--well, you mustn't, that's all!"
 </p>
 </body>
