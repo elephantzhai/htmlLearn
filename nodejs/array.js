@@ -33,3 +33,13 @@ console.log(website5);
 for(var i=0;i<website5.length;i++){
 	console.log(website5[i]);
 }
+
+website5.pop()
+console.log(website5);
+
+website5.shift();
+console.log(website5);
+
+console.log(website);
+website.splice(2,1)
+console.log(website);
