@@ -21,20 +21,54 @@ var server = http.createServer(function(req, res) {
 				break
 
 			case "/add.html":
+				var html = "<html><head><meta charset = 'utf8'/><title>elephant</title></head><body>"+
+				"Add" +
+				"</body></html>"
+
+				res.setHeader("Content-Type", "text/html")
+				res.setHeader("Content-Encoding", "utf8")
+				res.end(html)
 				break
 
 			case "/remove.html":
+			var html = "<html><head><meta charset = 'utf8'/><title>elephant</title></head><body>"+
+				"Remove" +
+				"</body></html>"
+
+				res.setHeader("Content-Type", "text/html")
+				res.setHeader("Content-Encoding", "utf8")
+				res.end(html)
 				break
 
 			case "/find.html":
+			var html = "<html><head><meta charset = 'utf8'/><title>elephant</title></head><body>"+
+				"Find" +
+				"</body></html>"
+
+				res.setHeader("Content-Type", "text/html")
+				res.setHeader("Content-Encoding", "utf8")
+				res.end(html)
 				break
 
 			case "/edit.html":
+			var html = "<html><head><meta charset = 'utf8'/><title>elephant</title></head><body>"+
+				"Edit" +
+				"</body></html>"
+
+				res.setHeader("Content-Type", "text/html")
+				res.setHeader("Content-Encoding", "utf8")
+				res.end(html)
 				break
 
 			default:
 				console.log("invalid request" + req.url)
-				res.end()
+				var html = "<html><head><meta charset = 'utf8'/><title>elephant</title></head><body>"+
+				"404 Not found!" +
+				"</body></html>"
+
+				// res.writeHead(404,{"Content-Type":"text/html"})
+				res.setHeader("Content-Encoding", "utf8")
+				res.end(html)
 		}
 	}
 })
