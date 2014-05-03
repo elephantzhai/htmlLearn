@@ -2,6 +2,8 @@ var http = require("http")
 var fs = require("fs")
 var qs = require("querystring")
 
+var websites = []
+
 var app = http.createServer(function(req,res){
 	var postData = ""
 	if(req.method === "GET"){
@@ -69,9 +71,33 @@ var app = http.createServer(function(req,res){
 				console.log(website.email);
 				console.log(website.age);
 				console.log(website.cilck);
-				res.end(postData)
+
+				websites.push(website);
+
+				var html = "<html><head><meta charset='utf8'/><title>elephant</title></head>"
+				html += "<table>"
+
+				for(var i=0;i<websites.length;++i){
+					var row = "<tr>"+
+					"<td>"+websites[i].domainName+"</td>"+
+					"<td>"+websites[i].name+"</td>"+
+					"<td>"+websites[i].email+"</td>"+
+					"<td>"+websites[i].age+"</td>"+
+					"<td>"+websites[i].cilck+"</td>"+
+					"</tr>"
+					html+=row
+
+				}
+
+				html+="</table>"
+				html+="</body></html>"
+				res.writeHeader(200,{"Content-Type":"text/html"})
+				res.end(html)
+
+
+
 			})
-			break;
+			break
 		}
 	}
 })
