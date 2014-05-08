@@ -1,0 +1,5 @@
+var myModule1=require('./module')
+myModule1.setName('cat')
+var myModule2=require('./module')
+myModule2.setName('dog')
+myModule1.sayHello()
