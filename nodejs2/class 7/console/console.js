@@ -1,0 +1,5 @@
+console.log("hello")
+console.log('hello%elephant')
+console.log('hello%elephant',1991,'mar')
+console.error('error!')
+console.trace('this is a error')
