@@ -1,3 +1,4 @@
+//引用模块
 var express = require('express');
 var path = require('path');
 var favicon = require('static-favicon');
@@ -8,6 +9,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+//实例化express对象
 var app = express();
 
 // view engine setup

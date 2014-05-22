@@ -22,3 +22,4 @@ http.get(option,function(res){
 		console.log('服务端响应回来的数据为 '+data)
 	})
 })
+
