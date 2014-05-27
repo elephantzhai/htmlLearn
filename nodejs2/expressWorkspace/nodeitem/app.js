@@ -6,6 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var partials = require("express-partials")
+var util = require('util')
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -58,5 +59,20 @@ app.use(function(err, req, res, next) {
     });
 });
 
+// app.use(function(req, res, next){
+//         app.locals({
+//           inspect: function(obj) {
+//             return util.inspect(obj, true);
+//           }
+//         });
+        
+//         // next();
+//     }
+// );
+// app.locals({
+//     inspect:function(obj){
+//         return util.inspect(obj,true)+" over"
+//     }
+// })
 
 module.exports = app;
