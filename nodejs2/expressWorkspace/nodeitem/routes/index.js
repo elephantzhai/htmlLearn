@@ -25,14 +25,7 @@ router.get('/list',function(req,res){
 
 
 router.get('/view',function(req,res){
-    res.locals({
-        headers:function(req,res){
-            return req.headers
-        },
-        inspect: function(obj) {
-            return util.inspect(obj, true)
-        }
-    })
+    res.locals.headers = req.headers;
     // res.locals.headers = req.headers
     // res.locals.inspect = 
     // app.locals({

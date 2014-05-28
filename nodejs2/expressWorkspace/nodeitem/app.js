@@ -26,6 +26,10 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.locals.inspect=function(obj){
+        return util.inspect(obj,true)+" over"
+    }
+
 app.use('/', routes);
 app.use('/users', users);
 /// catch 404 and forward to error handler
@@ -58,21 +62,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
-// app.use(function(req, res, next){
-//         app.locals({
-//           inspect: function(obj) {
-//             return util.inspect(obj, true);
-//           }
-//         });
-        
-//         // next();
-//     }
-// );
-// app.locals({
-//     inspect:function(obj){
-//         return util.inspect(obj,true)+" over"
-//     }
-// })
 
 module.exports = app;
