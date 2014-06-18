@@ -56,12 +56,10 @@ router.post('/Reg', function(req, res) {
 });
 //用户登录
 router.get('/login', function(req, res) {
-    console.log("get login");
     res.render('login', { title: '登录页面' });
 });
 
 router.post('/login', function(req, res) {
-    console.log("post dologin");
     //将登录的密码转成md5形式
     var md5=crypto.createHash("md5");
     var password=md5.update(req.body.password).digest("base64");
