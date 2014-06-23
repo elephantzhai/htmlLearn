@@ -8,14 +8,51 @@ var Post=require("../models/post")
 /* GET home page. */
 //root
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express'});
+    if(req.session.user){
+        res.redirect("/u/"+req.session.user.name);
+    }else{
+        Post.find(null,function(err,posts){
+            if(err){
+                posts=[];
+            }
+            res.locals.posts = posts
+            res.render("index",{
+                title:"首页"
+            });
+        });
+    }
+
 });
 router.get('/u/:user', function(req, res) {
-    res.render('index', { title: 'user' });
+    User.find(req.params.user,function(err,user){
+        if(!user){
+            req.session.error="用户不存在";
+            return res.redirect("/");
+        }
+        Post.find(user.name,function(err,posts){
+            if(err){
+                req.session.error=err;
+                return req.redirect("/");
+            }
+            res.locals.posts = posts
+            res.render("user",{
+                title:user.name
+            })
+        });
+    });
 });
 //发表信息
 router.post('/post', function(req, res) {
-
+    var currentUser=req.session.user;
+    var post=new Post(currentUser.name,req.body.post);
+    post.save(function(err){
+        if(err){
+            req.session.error=err;
+            return res.redirect("/");
+        }
+        req.session.success="发表成功";
+        res.redirect("/u/"+currentUser.name);
+    });
 });
 //用户注册
 router.get('/reg', function(req, res) {
@@ -56,12 +93,10 @@ router.post('/Reg', function(req, res) {
 });
 //用户登录
 router.get('/login', function(req, res) {
-    console.log("get login");
     res.render('login', { title: '登录页面' });
 });
 
 router.post('/login', function(req, res) {
-    console.log("post dologin");
     //将登录的密码转成md5形式
     var md5=crypto.createHash("md5");
     var password=md5.update(req.body.password).digest("base64");
@@ -79,7 +114,7 @@ router.post('/login', function(req, res) {
         }
         req.session.user=user;
         req.session.success="登录成功";
-        res.redirect("/");
+        res.redirect("/u/"+user.name);
     })
 });
 //用户退出
